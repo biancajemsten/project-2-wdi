@@ -16,12 +16,12 @@
           <% if(locals.isLoggedIn){%>
               <li>Hi <%= locals.user.username %></li>
               <li><a href="/logout">Logout</a></li>
-              <li><a href="/pictures/new">Add a new picture</a> </li>
+              <li><a href="/recommendations/new">Add a new recommendation</a> </li>
+              <li><a href="/user/show">My profile</a> </li>
           <%} else {%>
               <li><a href="/login">Login</a></li>
               <li><a href="/register">Sign up</a></li>
           <% } %>
-          <li><a href="/pictures">Pictures</a> </li>
         </ul>
       </div>
     </div>

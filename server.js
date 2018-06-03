@@ -34,6 +34,6 @@ app.use(session({
 //
 //
 //
-// app.use(routes);
+app.use(routes);
 
 app.listen(port, () => console.log(`Express started on port: ${port}`));
