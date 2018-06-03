@@ -28,12 +28,21 @@ app.use(session({
   saveUninitialized: false
 }));
 
-//
-//
-//
-//
-//
-//
-app.use(routes);
 
-app.listen(port, () => console.log(`Express started on port: ${port}`));
+
+app.listen(port, () => console.log(`Express started on port: ${port}`));app.use((req, res, next) => {
+  if(!req.session.userId) return next();
+  console.log('session middleware');
+  console.log(req.session);
+  User
+    .findById(req.session.userId)
+    .populate({path: 'user'})
+    .exec()
+    .then((user) =>{
+      res.locals.user = user;
+      res.locals.isLoggedIn = true;
+      next();
+    });
+});
+
+app.use(routes);

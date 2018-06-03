@@ -5,11 +5,13 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res){
+  // const userData = req.body;
+  // userData['user'] = res.locals.user.id;
   User
     .create(req.body)
     .then((user)=>{
       console.log(user);
-      res.redirect('/');
+      res.redirect('/users');
     })
     .catch((err) => {
       console.log(err);

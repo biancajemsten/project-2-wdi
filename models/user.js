@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+
 userSchema.methods.validatePassword = function(password){
   return bcrypt.compareSync(password, this.password);
 };
@@ -35,3 +36,5 @@ userSchema.pre('validate', function(next){
   }
   next();
 });
+
+module.exports = mongoose.model('User', userSchema);

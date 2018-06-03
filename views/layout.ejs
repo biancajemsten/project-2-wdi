@@ -3,24 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <title>Travel Recommendations</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/app.js" charset="utf-8"></script>
+    <%# <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script> %>
   </head>
   <body>
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li><a href="/">Users</a></li>
           <% if(locals.isLoggedIn){%>
-              <li>Hi <%= locals.user.username %></li>
-              <li><a href="/logout">Logout</a></li>
-              <li><a href="/recommendations/new">Add a new recommendation</a> </li>
-              <li><a href="/user/show">My profile</a> </li>
+            <li><a href="/users">All Users</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/recommendations/new">Add a new recommendation</a> </li>
+            <li><a href="/user">My profile</a> </li>
           <%} else {%>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register">Sign up</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Sign up</a></li>
           <% } %>
         </ul>
       </div>
