@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <title>Travel Recommendations</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li><a href="/">Users</a></li>
+          <% if(locals.isLoggedIn){%>
+              <li>Hi <%= locals.user.username %></li>
+              <li><a href="/logout">Logout</a></li>
+              <li><a href="/pictures/new">Add a new picture</a> </li>
+          <%} else {%>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Sign up</a></li>
+          <% } %>
+          <li><a href="/pictures">Pictures</a> </li>
+        </ul>
+      </div>
+    </div>
+    <main class="row">
+      <%- body %>
+    </main>
+  </body>
+</html>
