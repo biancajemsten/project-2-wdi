@@ -1,8 +1,8 @@
 <h1>Index page</h1>
 
-<% users.forEach( user =>{ %>
+<% users.forEach( profile =>{ %>
   <li>
-    <a href='/users/<%= user.id %>'> <%= user.username %></a>
+    <a href='/users/<%= profile.id %>'> <%= profile.username %></a>
   </li>
 <% }) %>
 </ul>

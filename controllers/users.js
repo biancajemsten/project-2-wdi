@@ -6,7 +6,7 @@ function showRoute(req, res){
   if(!res.locals.isLoggedIn) return res.redirect('/');
   User
     .findById(req.session.userId)
-    .populate({path: 'users'})
+    .populate('countries')
     .exec()
     .then( users =>{
       res.render('users/show', {users});

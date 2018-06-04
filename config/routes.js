@@ -6,6 +6,7 @@ const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const users = require('../controllers/users');
 const recommendations = require('../controllers/recommendations');
+const countries = require('../controllers/countries');
 
 // handle a request
 router.get('/', (req, res) => res.render('home', {
@@ -33,17 +34,27 @@ router.route('/users/:id/edit')
 router.route('/logout')
   .get(sessions.delete);
 
-router.route('/recommendations/new')
+router.route('/countries/:id/recommendations/new')
   .get(recommendations.new);
 
-router.route('/recommendations')
+router.route('/countries/:id/recommendations')
   .post(recommendations.create);
 
-router.route('/recommendations/:id')
+router.route('countries/:id/recommendations/:id')
   .get(recommendations.show)
   .put(recommendations.update);
 
-router.route('/recommendations/:id/edit')
+router.route('/countries/:id/recommendations/:id/edit')
   .get(recommendations.edit);
+
+router.route('/countries/new')
+  .get(countries.new);
+
+router.route('/countries')
+  .get(countries.index)
+  .post(countries.create);
+
+router.route('/countries/:id')
+  .get(countries.show);
 
 module.exports = router;

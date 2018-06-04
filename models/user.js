@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   nationality: String,
   currentlyIn: String,
   password: { type: String, required: true },
-  country: [{type: mongoose.Schema.Types.ObjectId, ref: 'Country'}]
+  countries: [{type: mongoose.Schema.Types.ObjectId, ref: 'Country'}]
 },{
   timestamps: true
 });

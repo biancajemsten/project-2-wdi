@@ -1,0 +1,9 @@
+<h2><%= country.country %></h2>
+<ul>
+<% country.recommendation.forEach( recommendation =>{ %>
+  <li>recommendation</li>
+  <a href='/recommendations/<%= recommendation.id %>'> <%= recommendation.title %></a>
+<% }) %>
+</ul>
+
+<a href="/countries/<%= country.id %>/recommendations/new">Add a new recommendation</a>

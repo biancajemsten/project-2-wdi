@@ -1,19 +1,27 @@
 const Recommendation = require('../models/recommendation');
+const Country = require('../models/country');
 
 function newRoute(req, res) {
-  res.render('recommendations/new');
+  //how do I make sure that :id is from the country I'm in?
+  res.render('recommendations/new',{countryId: req.params.id});
 }
 
 function createRoute(req, res){
-  Recommendation
-    .create(req.body)
-    .then((recommendation)=>{
-      console.log(recommendation);
-      return res.redirect(`/recommendations/${recommendation.id}`);
-    })
-    .catch((err) => {
-      console.log(err);
+  console.log(req.params);
+  Country
+    .findById(req.params.id)
+    .then( country =>{
+
+      country
+        .recommendation
+        .push(req.body);
+
+      country.save(() =>{
+        console.log(country);
+        return res.redirect(`/countries/${country.id}`);
+      });
     });
+
 }
 
 function showRoute(req, res){

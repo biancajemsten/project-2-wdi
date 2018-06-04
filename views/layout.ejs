@@ -17,7 +17,6 @@
           <% if(locals.isLoggedIn){%>
             <li><a href="/users">All Users</a></li>
             <li><a href="/logout">Logout</a></li>
-            <li><a href="/recommendations/new">Add a new recommendation</a> </li>
             <li><a href='/users/<%= user.id %>'>My profile</a> </li>
           <%} else {%>
             <li><a href="/login">Login</a></li>
