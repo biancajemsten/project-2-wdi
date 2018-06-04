@@ -1,0 +1,16 @@
+<form method="POST" action="/recommendations">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" value="<%= recommendation.title %>">
+  </div>
+  <div>
+    <label for="city">City</label>
+    <input type="text" name="city" id="city" value="<%= recommendation.city %>">
+  </div>
+  <div>
+    <label for="content">Content</label>
+    <input type="text" name="content" id="content" value="<%= recommendation.content %>">
+  </div>
+  <button class="button">Update recommendation</button>
+</form>

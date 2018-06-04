@@ -1,0 +1,24 @@
+<form method="POST" action="<%= `/users/${user.id}` %>">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" value="<%= user.username %>">
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" value="<%= user.email %>">
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input type="text" name="age" id="age" value="<%= user.age %>">
+  </div>
+  <div>
+    <label for="nationality">Nationality</label>
+    <input type="text" name="nationality" id="nationality" value="<%= user.nationality %>">
+  </div>
+  <div>
+    <label for="currentlyIn">Currently In</label>
+    <input type="text" name="currentlyIn" id="currentlyIn" value="<%= user.currentlyIn %>">
+  </div>
+  <button class="button">Register</button>
+</form>

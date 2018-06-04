@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   age: String,
   nationality: String,
   currentlyIn: String,
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  country: [{type: mongoose.Schema.Types.ObjectId, ref: 'Country'}]
 },{
   timestamps: true
 });

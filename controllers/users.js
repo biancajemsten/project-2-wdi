@@ -13,7 +13,6 @@ function showRoute(req, res){
     });
 }
 
-
 function indexRoute(req, res){
   User
     .find()
@@ -24,8 +23,27 @@ function indexRoute(req, res){
     });
 }
 
+function editRoute(req, res){
+  User
+    .findById(req.params.id)
+    .exec()
+    .then( user =>{
+      res.render('users/edit', {user});
+    });
+}
+function updateRoute(req, res){
+  User
+    .findById(req.params.id)
+    .update(req.body)
+    .then( user =>{
+      return res.redirect(`/users/${user.id}`);
+    });
+}
+
 
 module.exports = {
   show: showRoute,
-  index: indexRoute
+  index: indexRoute,
+  edit: editRoute,
+  update: updateRoute
 };
