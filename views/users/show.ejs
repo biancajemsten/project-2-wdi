@@ -6,8 +6,12 @@
   <li>Currently In: <%= user.currentlyIn %> </li>
 </ul>
 
-
-<%= user.countries %>
+<ul>
+<% user.countries.forEach(country => { %>
+  <li>
+    <a href='/countries/<%= country.id %>'> <%= country.country %></a>
+  </li>
+<% }) %>
+</ul>
 <a href="/users/<%=user.id %>/edit">Edit</a>
-
-<a href="/countries">Show Countries</a>
+<a href="/users/<%=user.id %>/countries">Show Countries</a>

@@ -50,8 +50,10 @@ router.route('/countries/:id/recommendations/:id/edit')
 router.route('/countries/new')
   .get(countries.new);
 
+router.route('/users/:id/countries')
+  .get(countries.index);
+
 router.route('/countries')
-  .get(countries.index)
   .post(countries.create);
 
 router.route('/countries/:id')

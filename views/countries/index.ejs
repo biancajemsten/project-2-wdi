@@ -1,11 +1,24 @@
 <h2>countries index page</h2>
+<div class="columns is-multiline">
+  <ul>
+    <div class="column">
+      <% if(values[0][0].countryCreator.toString() === values[1]._id.toString()){ %>
+        <h1>ksfgkafhsj</h1>
+      <%}%>
 
-<% countries.forEach( country =>{ %>
-  <li>
-    <a href='/countries/<%= country.id %>'> <%= country.country %></a>
-  </li>
-<% }) %>
-</ul>
+
+      <% const thisUser = values[1]._id.toString() %>
+
+      <% values[0].forEach( country =>{ %>
+        <% if(country.countryCreator.toString() === values[1]._id.toString()){ %>
+          <li class="countryIndex" >
+          <a href='/countries/<%= country.id %>'> <%= country.country %> by <%=country.countryCreator%></a>
+          </li>
+        <%} %>
+      <% }) %>
+    </div>
+  </ul>
+</div>
 
 
 <a href="/countries/new">Add a new country</a>

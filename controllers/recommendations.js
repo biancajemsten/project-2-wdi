@@ -21,7 +21,6 @@ function createRoute(req, res){
         return res.redirect(`/countries/${country.id}`);
       });
     });
-
 }
 
 function showRoute(req, res){

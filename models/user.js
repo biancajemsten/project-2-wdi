@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const Country = require('../models/country');
+
 const userSchema = new mongoose.Schema({
   username: String,
   email: { type: String, unique: true, required: true},
@@ -8,9 +10,20 @@ const userSchema = new mongoose.Schema({
   nationality: String,
   currentlyIn: String,
   password: { type: String, required: true },
-  countries: [{type: mongoose.Schema.Types.ObjectId, ref: 'Country'}]
+  country: [Country.schema]
 },{
   timestamps: true
+});
+
+
+// countries: [{type: mongoose.Schema.Types.ObjectId, ref: 'Country'}]
+
+
+
+userSchema.virtual('countries', {
+  localField: '_id',
+  foreignField: 'countryCreator',
+  ref: 'User'
 });
 
 

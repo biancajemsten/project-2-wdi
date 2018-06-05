@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <title>Travel Recommendations</title>
-    <%# <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/app.js" charset="utf-8"></script> %>
+    <link type="text/css" rel="stylesheet" href="../css/style.css">
+    <script src="/js/app.js" charset="utf-8"></script>
   </head>
   <body>
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
+          <li><a href="/">Home</a></li>
           <% if(locals.isLoggedIn){%>
             <li><a href="/users">All Users</a></li>
             <li><a href="/logout">Logout</a></li>
-            <li><a href='/users/<%= user.id %>'>My profile</a> </li>
+            <li><a href='/users/<%= currentUser.id %>'>My profile</a> </li>
           <%} else {%>
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Sign up</a></li>

@@ -1,10 +1,13 @@
 const Country = require('../models/country');
+const User = require('../models/user');
 
 function newRoute(req, res) {
-  res.render('countries/new');
+  res.render('countries/new', {userId: req.params.id});
 }
 
 function createRoute(req, res){
+  const countryData = req.body;
+  countryData['countryCreator'] = res.locals.currentUser.id;
   Country
     .create(req.body)
     .then((country)=>{
@@ -15,6 +18,23 @@ function createRoute(req, res){
       console.log(err);
     });
 }
+
+//-------old create controller --------
+// User
+//   .findById(req.params.id)
+//   .then( user =>{
+//     user
+//       .country
+//       .push(req.body);
+//
+//     user.save(() =>{
+//       return res.redirect(`/user/${user.id}/countries`);
+//     });
+//   });
+// }
+
+
+
 
 function showRoute(req, res){
   Country
@@ -29,12 +49,23 @@ function showRoute(req, res){
 }
 
 function indexRoute(req, res){
-  Country
-    .find()
-    .exec()
-    .then( countries =>{
-      res.render('countries/index', {countries});
+  User
+    .findById(req.params.id)
+    .populate('countries.countryCreator')
+    .populate('country');
+  Promise.all([Country.find(), User.findById(req.params.id)])
+    .then((values) => {
+      console.log(values);
+      res.render('countries/index', {values});
     });
+  // Country
+  //   .findById(req.params.id)
+  //   // .populate('countries.countryCreator.username')
+  //   // .populate('country')
+  //   .exec()
+  //   .then( user =>{
+  //     res.render('countries/index', {users});
+  //   });
 }
 
 module.exports = {

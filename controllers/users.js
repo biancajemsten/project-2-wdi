@@ -4,12 +4,13 @@ const User = require('../models/user');
 //changed some of this but it still somehow works..? why can't I link user info ?
 function showRoute(req, res){
   if(!res.locals.isLoggedIn) return res.redirect('/');
+  console.log(req.params);
   User
-    .findById(req.session.userId)
+    .findById(req.params.id)
     .populate('countries')
     .exec()
-    .then( users =>{
-      res.render('users/show', {users});
+    .then( user =>{
+      res.render('users/show', {user});
     });
 }
 
