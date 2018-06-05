@@ -57,6 +57,7 @@ router.route('/countries')
   .post(countries.create);
 
 router.route('/countries/:id')
-  .get(countries.show);
+  .get(countries.show)
+  .delete(countries.delete);
 
 module.exports = router;

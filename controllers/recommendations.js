@@ -36,17 +36,17 @@ function showRoute(req, res){
 }
 
 function editRoute(req, res){
-  const recommendationId = req.params.recommendation_id.toString();
-  Country
-    .findById(req.params.country_id)
-    .exec()
-    .then( country =>{
-      // res.render('recommendations/show', {recommendation});
-      // console.log(recommendation);
-      const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
-      res.render('recommendations/show', {wantedRecommendation});
-    });
-    
+  // const recommendationId = req.params.recommendation_id.toString();
+  // Country
+  //   .findById(req.params.country_id)
+  //   .exec()
+  //   .then( country =>{
+  //     // res.render('recommendations/show', {recommendation});
+  //     // console.log(recommendation);
+  //     const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
+  //     res.render('recommendations/show', {wantedRecommendation});
+  //   });
+
   Recommendation
     .findById(req.params.id)
     .exec()

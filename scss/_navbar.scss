@@ -1,0 +1,23 @@
+.navbar{
+  height: 50px;
+  background-color: none;
+}
+
+div.navbar-brand{
+  height: 50px;
+}
+
+.navbar-item img {
+    max-height: 3rem;
+    background-color: white;
+}
+
+div#navMenu.navbar-menu{
+  background-color: AliceBlue;
+  a{
+    color: aliceBlue;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}

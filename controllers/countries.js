@@ -19,22 +19,6 @@ function createRoute(req, res){
     });
 }
 
-//-------old create controller --------
-// User
-//   .findById(req.params.id)
-//   .then( user =>{
-//     user
-//       .country
-//       .push(req.body);
-//
-//     user.save(() =>{
-//       return res.redirect(`/user/${user.id}/countries`);
-//     });
-//   });
-// }
-
-
-
 
 function showRoute(req, res){
   Country
@@ -68,9 +52,20 @@ function indexRoute(req, res){
   //   });
 }
 
+function deleteRoute(req, res){
+  Country
+    .findById(req.params.id)
+    .exec()
+    .then(country => {
+      country.remove();
+      return res.redirect('/');
+    });
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
   show: showRoute,
-  index: indexRoute
+  index: indexRoute,
+  delete: deleteRoute
 };
