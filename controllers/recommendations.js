@@ -2,7 +2,6 @@ const Recommendation = require('../models/recommendation');
 const Country = require('../models/country');
 
 function newRoute(req, res) {
-  //how do I make sure that :id is from the country I'm in?
   res.render('recommendations/new',{countryId: req.params.id});
 }
 
@@ -24,22 +23,40 @@ function createRoute(req, res){
 }
 
 function showRoute(req, res){
-  Recommendation
-    .findById(req.params.id)
+  const recommendationId = req.params.recommendation_id.toString();
+  Country
+    .findById(req.params.country_id)
     .exec()
-    .then( recommendation =>{
-      res.render('recommendations/show', {recommendation});
+    .then( country =>{
+      // res.render('recommendations/show', {recommendation});
+      // console.log(recommendation);
+      const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
+      res.render('recommendations/show', {wantedRecommendation});
     });
 }
 
 function editRoute(req, res){
+  const recommendationId = req.params.recommendation_id.toString();
+  Country
+    .findById(req.params.country_id)
+    .exec()
+    .then( country =>{
+      // res.render('recommendations/show', {recommendation});
+      // console.log(recommendation);
+      const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
+      res.render('recommendations/show', {wantedRecommendation});
+    });
+    
   Recommendation
     .findById(req.params.id)
     .exec()
     .then( recommendation =>{
+      console.log(recommendation);
       res.render('recommendations/edit', {recommendation});
     });
 }
+
+
 function updateRoute(req, res){
   Recommendation
     .findById(req.params.id)

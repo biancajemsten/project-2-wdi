@@ -1,8 +1,12 @@
 <h2><%= country.country %></h2>
 <ul>
 <% country.recommendation.forEach( recommendation =>{ %>
-  <li><a href='/recommendations/<%= recommendation.id %>'> <%= recommendation.title %></a></li>
+  <li><a href='/countries/<%= country.id%>/recommendations/<%= recommendation.id %>'> <%= recommendation.title %></a></li>
 <% }) %>
 </ul>
 
 <a href="/countries/<%= country.id %>/recommendations/new">Add a new recommendation</a>
+<form action="/countries/<%= country.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button name="button">Delete Country</button>
+</form>

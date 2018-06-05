@@ -2,17 +2,12 @@
 <div class="columns is-multiline">
   <ul>
     <div class="column">
-      <% if(values[0][0].countryCreator.toString() === values[1]._id.toString()){ %>
-        <h1>ksfgkafhsj</h1>
-      <%}%>
-
-
       <% const thisUser = values[1]._id.toString() %>
 
       <% values[0].forEach( country =>{ %>
         <% if(country.countryCreator.toString() === values[1]._id.toString()){ %>
           <li class="countryIndex" >
-          <a href='/countries/<%= country.id %>'> <%= country.country %> by <%=country.countryCreator%></a>
+          <a href='/countries/<%= country.id %>'> <%= country.country %></a>
           </li>
         <%} %>
       <% }) %>

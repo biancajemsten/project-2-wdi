@@ -37,7 +37,7 @@ function updateRoute(req, res){
     .findById(req.params.id)
     .update(req.body)
     .then( user =>{
-      return res.redirect(`/users/${user.id}`);
+      return res.redirect(`/users/${req.params.id}`);
     });
 }
 

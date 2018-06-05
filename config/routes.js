@@ -40,11 +40,11 @@ router.route('/countries/:id/recommendations/new')
 router.route('/countries/:id/recommendations')
   .post(recommendations.create);
 
-router.route('countries/:id/recommendations/:id')
+router.route('/countries/:country_id/recommendations/:recommendation_id')
   .get(recommendations.show)
   .put(recommendations.update);
 
-router.route('/countries/:id/recommendations/:id/edit')
+router.route('/countries/:country_id/recommendations/:recommendation_id/edit')
   .get(recommendations.edit);
 
 router.route('/countries/new')
