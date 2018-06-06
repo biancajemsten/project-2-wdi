@@ -19,9 +19,6 @@ div#navMenu.navbar-menu {
     font-size: 2rem;
     font-family: "Pacifico", cursive; }
 
-h2.profileTitle {
-  text-align: center; }
-
 img.profilePicture {
   width: 300px;
   max-height: 100%; }
@@ -33,11 +30,15 @@ img.profilePicture {
 .profilePictureContainer {
   min-height: 400px; }
 
-li.profileLabel {
+li.listLabel {
   font-weight: bold; }
 
-.preview {
+.autoHeight {
   height: auto; }
+
+.previewPicture {
+  height: 75px;
+  width: auto; }
 
 html {
   height: 100%; }
@@ -79,7 +80,9 @@ h2 {
   color: #696969; }
 
 h3 {
-  font-family: "Pacifico", cursive; }
+  font-family: "Pacifico", cursive;
+  font-size: 1.25rem;
+  color: #696969; }
 
 .centered {
   text-align: center; }
@@ -117,7 +120,7 @@ h3 {
     background-color: #6699ff;
     color: white; }
 
-.editButton {
+.greyButton {
   background-color: #696969;
   color: white; }
 

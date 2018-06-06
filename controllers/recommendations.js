@@ -6,20 +6,19 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res){
-  console.log(req.params);
+  // console.log(req.params);
   const recommendationData = req.body;
   recommendationData['url'] = req.file.location;
-  recommendationData['fileMetadata'] = req.file;
+  recommendationData['fileMetadata'] = req.file; 
   Country
     .findById(req.params.id)
     .then( country =>{
-
       country
         .recommendation
         .push(req.body);
 
       country.save(() =>{
-        console.log(country);
+        // console.log(country);
         return res.redirect(`/countries/${country.id}`);
       });
     });
@@ -34,7 +33,6 @@ function showRoute(req, res){
       // res.render('recommendations/show', {recommendation});
       // console.log(recommendation);
       const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
-      console.log(wantedRecommendation);
       res.render('recommendations/show', {wantedRecommendation});
     });
 }
@@ -52,6 +50,10 @@ function editRoute(req, res){
 
 
 function updateRoute(req, res){
+  const recommendationData = req.body;
+  if(req.file){
+    recommendationData['url'] = req.file.location;
+  }
   console.log(req.body);
   Country
     .findById(req.params.country_id)
@@ -62,7 +64,6 @@ function updateRoute(req, res){
       country
         .save()
         .then(()=> res.redirect(`/countries/${req.params.country_id}/recommendations/${req.params.recommendation_id}`));
-
     });
 }
 

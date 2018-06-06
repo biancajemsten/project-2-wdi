@@ -1,17 +1,14 @@
 <h2><%=wantedRecommendation[0].title %></h2>
 
 
-
 <p>City: <%= wantedRecommendation[0].city %></p>
 <p>Content: <%= wantedRecommendation[0].content%></p>
-
-<%=wantedRecommendation[0].url%>
 
 <img class="profilePicture" src="<%= wantedRecommendation[0].url %>">
 
 <div class="columns has-top-margin">
   <div class="column is-half">
-    <a href="<%= wantedRecommendation[0].id %>/edit">Edit</a>
+      <a href="<%= wantedRecommendation[0].id %>/edit">Edit</a>
   </div>
   <div class="column is-half">
     <form>

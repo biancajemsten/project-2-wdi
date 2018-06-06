@@ -12,5 +12,3 @@ const recommendationSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Recommendation', recommendationSchema);
-
-//also add tags and images (when mvp is reached)

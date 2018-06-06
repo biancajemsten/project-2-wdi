@@ -1,7 +1,7 @@
 <div class="columns is-multiline is-mobile">
   <div class="columns column is-full is-multiline">
     <div class="column is-full-desktop">
-      <h2 class="profileTitle"><%= values[1].username %>'s Profile</h2>
+      <h2 class="centered"><%= values[1].username %>'s Profile</h2>
     </div>
     <div class="column is-two-fifths-desktop profilePictureContainer">
       <img class="profilePicture" src="<%= values[1].url %>">
@@ -10,9 +10,9 @@
       <div class="columns column is-full hasBorder has-top-margin is-multiline">
         <div class="column is-half-desktop">
           <ul>
-            <li class="profileLabel">Age:</li>
-            <li class="profileLabel">Nationality:</li>
-            <li class="profileLabel">Currently In:</li>
+            <li class="listLabel">Age:</li>
+            <li class="listLabel">Nationality:</li>
+            <li class="listLabel">Currently In:</li>
           </ul>
         </div>
         <div class="column is-half-desktop">
@@ -24,26 +24,39 @@
         </div>
         <div class="column is-full-desktop">
           <% if(values[1].id === locals.currentUser.id) { %>
-            <a href="/users/<%=values[1].id %>/edit"><p class=" editButton centered">Edit Profile</p></a>
+            <a href="/users/<%=values[1].id %>/edit"><p class=" greyButton centered">Edit Profile</p></a>
           <%}%>
         </div>
 
       </div>
-      <div class="column is half-desktop">
-        <div class="preview hasBorder">
-          <a href="/users/<%=values[1].id %>/countries"><h3>Reviewed countries</h3></a>
-            <% values[0].forEach( country =>{ %>
-                <% if(country.countryCreator.toString() === values[1]._id.toString()){ %>
-                  <div = class="column is-full indexPage">
-                  <a href='/countries/<%= country._id %>' class="userIndex"> <%= country.country %></a>
-                  </div>
-                <%} %>
-            <% }) %>
+      <div class="columns column is-full-desktop has-top-margin hasBorder">
+        <div class="column is-half autoHeight ">
+            <h3 class="centered">Reviewed countries</h3>
+            <div class="previewCountry">
+              <%const countryArray = [];%>
+              <% values[0].forEach( country =>{ %>
+                <% if(country.countryCreator.toString() === values[1]._id.toString()){%>
+                  <%countryArray.push(country);%>
+                  <%} %>
+                  <% }) %>
+              <% if(countryArray[0]){%><p class="hasBorder has-top-margin centered"><%=countryArray[0].country%></p><%}%>
+              <% if(countryArray[1]){%><p class="hasBorder has-top-margin centered"><%=countryArray[1].country%></p><%}%>
+              <% if(countryArray[2]){%><p class="hasBorder has-top-margin centered"><%=countryArray[2].country%></p><%}%>
+              <% if(countryArray[3]){%><p class="hasBorder has-top-margin centered"><%=countryArray[3].country%></p><%}%>
+              <% if(countryArray[4]){%><p class="hasBorder has-top-margin centered"><%=countryArray[4].country%></p><%}%>
+            </div>
+            <a href="/users/<%=values[1].id %>/countries"><p class="hasBorder has-top-margin centered greyButton">View all countries</p></a>
+        </div>
+        <div class="column is-half autoHeight">
+          <h3 class="centered">Uploaded photos</h3>
+          <div class="columns is-multiline">
+            <% if(countryArray[0].recommendation[0]){%>
+              <div class="column has-top-margin"><img class="previewPicture" src="<%=countryArray[0].recommendation[0].url%>"></div><%}%>
+            <% if(countryArray[1]){%>
+              <div class="column has-top-margin"><img class="previewPicture" src="<%=countryArray[1].recommendation[0].url%>"></div><%}%>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="column">
-    Fourth column
   </div>
 </div>
