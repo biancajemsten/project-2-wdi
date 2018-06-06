@@ -1,9 +1,9 @@
 @import "_variables";
 .navbar{
   background-color: #11ffee00;
-  position: fixed;
+  position: absolute;
   width: 90%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $grey;
   padding: 20px 0;
 
 }
@@ -14,7 +14,7 @@ div.navbar-brand{
 
 .navbar-item img {
     max-height: 3rem;
-    background-color: white;
+    color: $grey;
 }
 
 div#navMenu.navbar-menu{
@@ -24,4 +24,5 @@ div#navMenu.navbar-menu{
     font-size: 2rem;
     font-family: $title-font;
   }
+  overflow: hide;
 }

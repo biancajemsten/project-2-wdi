@@ -5,10 +5,11 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res){
-  // const userData = req.body;
-  // userData['user'] = res.locals.user.id;
+  const userData = req.body;
+  userData['url'] = req.file.location;
+  userData['fileMetadata'] = req.file;
   User
-    .create(req.body)
+    .create(userData)
     .then((user)=>{
       console.log(user);
       res.redirect('/users');

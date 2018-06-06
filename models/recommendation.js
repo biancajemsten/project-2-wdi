@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const recommendationSchema = new mongoose.Schema({
   title: String,
   city: String,
-  content: String
+  content: String,
+  url: String,
+  fileMetadata: Object
 },{
   timestamps: true
 });

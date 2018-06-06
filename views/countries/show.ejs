@@ -1,12 +1,31 @@
 <h2><%= country.country %></h2>
-<ul>
-<% country.recommendation.forEach( recommendation =>{ %>
-  <li><a href='/countries/<%= country.id%>/recommendations/<%= recommendation.id %>'> <%= recommendation.title %></a></li>
-<% }) %>
-</ul>
+<div class="columns is-multiline">
+  <div class="column columns is-multiline has-top-margin is-full">
+    <% country.recommendation.forEach( recommendation =>{ %>
+      <div class="columns column is-full indexPage"><a class="userIndex" href='/countries/<%= country.id%>/recommendations/<%= recommendation.id %>'>
+      <div class="column">
+      <%= recommendation.title %>
+      </div>
+      </a></div>
+      <% }) %>
+    </div>
+    <div class="column columns is-full">
+      <% if(country.countryCreator.toString() === locals.currentUser.id) { %>
+        <div class="flexContent column is-one-third firstButton ">
+          <a class="addNew" href="/countries/<%= country.id %>/recommendations/new">Add a new recommendation</a>
+        </div>
+        <div class="column is-one-third centered">
+          <form action="/countries/<%= country.id %>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="deleteButton" name="button">Delete Country</button>
+          </form>
+        </div>
+      <%}%>
+      <div class="column is-one-third">
+        <form>
+          <input class="goBack" type="button" value="Go back" onclick="history.back()">
+        </form>
+      </div>
+    </div>
 
-<a href="/countries/<%= country.id %>/recommendations/new">Add a new recommendation</a>
-<form action="/countries/<%= country.id %>" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button name="button">Delete Country</button>
-</form>
+</div>

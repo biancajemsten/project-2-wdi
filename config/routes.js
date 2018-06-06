@@ -1,5 +1,6 @@
 const express  = require('express');
 const router   = express.Router();
+const upload = require('../lib/s3-upload');
 
 // const static = require('../controllers/static');
 const registrations = require('../controllers/registrations');
@@ -15,7 +16,7 @@ router.get('/', (req, res) => res.render('home', {
 
 router.route('/register')
   .get(registrations.new)
-  .post(registrations.create);
+  .post(upload.single('file'), registrations.create);
 
 router.route('/login')
   .get(sessions.new)
@@ -23,7 +24,7 @@ router.route('/login')
 
 router.route('/users/:id')
   .get(users.show)
-  .put(users.update);
+  .post(upload.single('file'), users.update);
 
 router.route('/users')
   .get(users.index);
@@ -38,11 +39,11 @@ router.route('/countries/:id/recommendations/new')
   .get(recommendations.new);
 
 router.route('/countries/:id/recommendations')
-  .post(recommendations.create);
+  .post(upload.single('file'), recommendations.create);
 
 router.route('/countries/:country_id/recommendations/:recommendation_id')
   .get(recommendations.show)
-  .put(recommendations.update);
+  .post(upload.single('file'), recommendations.update);
 
 router.route('/countries/:country_id/recommendations/:recommendation_id/edit')
   .get(recommendations.edit);

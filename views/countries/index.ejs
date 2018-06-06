@@ -1,19 +1,23 @@
-<h2>countries index page</h2>
-<div class="columns is-multiline">
-  <ul>
+<h2 class="centered"><%=values[1].username%>'s Countries</h2>
+<div class="columns is-multiline has-top-margin">
+  <% const thisUser = values[1]._id.toString() %>
+  <% values[0].forEach( country =>{ %>
+      <% if(country.countryCreator.toString() === values[1]._id.toString()){ %>
+        <div class="column is-full indexPage">
+        <a href='/countries/<%= country._id %>' class="userIndex"> <%= country.country %></a>
+        </div>
+      <%} %>
+  <% }) %>
+  <div class="columns">
     <div class="column">
-      <% const thisUser = values[1]._id.toString() %>
-
-      <% values[0].forEach( country =>{ %>
-        <% if(country.countryCreator.toString() === values[1]._id.toString()){ %>
-          <li class="countryIndex" >
-          <a href='/countries/<%= country.id %>'> <%= country.country %></a>
-          </li>
-        <%} %>
-      <% }) %>
+      <form>
+        <input class="goBack" type="button" value="Go back" onclick="history.back()">
+      </form>
     </div>
-  </ul>
+    <div class="column">
+      <% if(values[1]._id.toString() === locals.currentUser.id) { %>
+        <a class="addNew" href="/countries/new">Add a new country</a>
+        <%}%>
+      </div>
+  </div>
 </div>
-
-
-<a href="/countries/new">Add a new country</a>

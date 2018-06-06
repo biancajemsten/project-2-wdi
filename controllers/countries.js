@@ -19,7 +19,6 @@ function createRoute(req, res){
     });
 }
 
-
 function showRoute(req, res){
   Country
     .findById(req.params.id)
@@ -27,9 +26,7 @@ function showRoute(req, res){
     .exec()
     .then( country =>{
       res.render('countries/show', {country});
-      console.log(country);
     });
-
 }
 
 function indexRoute(req, res){

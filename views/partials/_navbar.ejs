@@ -1,7 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img src="https://www.freeiconspng.com/uploads/airplane-icon---item-2--vector-magz--free-download-vector-graphics-4.png" alt="Bulma: a modern CSS framework based on Flexbox" width="50" height="50">
+      <img src="https://www.shareicon.net/data/2016/06/08/585194_airplane_512x512.png" alt="airplane logo" width="50" height="50">
     </a>
     <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
@@ -14,20 +14,14 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <li><a href="/">Home</a></li>
         <% if(locals.isLoggedIn){%>
-          <li><a href="/users">All Users</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href='/users/<%= currentUser.id %>'>My profile</a> </li>
+          <li><a href="/users">All Travelers</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <li><a href='/users/<%= currentUser.id %>'>My Profile</a> </li>
         <%} else {%>
-          <li><a href="/login">Login</a></li>
+          <li><a href="/login">Log In</a></li>
           <li><a href="/register">Sign up</a></li>
         <% } %>
       </ul>
-      <%# <a href="/beanbags" class="navbar-item">
-        All the beanbags
-      </a>
-      <a href="/beanbags/new" class="navbar-item">
-        New Beanbag
-      </a> %>
     </div>
   </div>
 </nav>

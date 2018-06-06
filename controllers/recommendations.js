@@ -7,6 +7,9 @@ function newRoute(req, res) {
 
 function createRoute(req, res){
   console.log(req.params);
+  const recommendationData = req.body;
+  recommendationData['url'] = req.file.location;
+  recommendationData['fileMetadata'] = req.file;
   Country
     .findById(req.params.id)
     .then( country =>{
@@ -31,38 +34,35 @@ function showRoute(req, res){
       // res.render('recommendations/show', {recommendation});
       // console.log(recommendation);
       const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
+      console.log(wantedRecommendation);
       res.render('recommendations/show', {wantedRecommendation});
     });
 }
 
 function editRoute(req, res){
-  // const recommendationId = req.params.recommendation_id.toString();
-  // Country
-  //   .findById(req.params.country_id)
-  //   .exec()
-  //   .then( country =>{
-  //     // res.render('recommendations/show', {recommendation});
-  //     // console.log(recommendation);
-  //     const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
-  //     res.render('recommendations/show', {wantedRecommendation});
-  //   });
-
-  Recommendation
-    .findById(req.params.id)
+  Country
+    .findById(req.params.country_id)
     .exec()
-    .then( recommendation =>{
-      console.log(recommendation);
-      res.render('recommendations/edit', {recommendation});
+    .then( country =>{
+      const recommendation = country.recommendation.id(req.params.recommendation_id);
+
+      res.render('recommendations/edit', {country, recommendation});
     });
 }
 
 
 function updateRoute(req, res){
-  Recommendation
-    .findById(req.params.id)
-    .update(req.body)
-    .then( recommendation =>{
-      return res.redirect(`/recommendations/${recommendation.id}`);
+  console.log(req.body);
+  Country
+    .findById(req.params.country_id)
+    .exec()
+    .then( country =>{
+      const recommendation = country.recommendation.id(req.params.recommendation_id);
+      recommendation.set(req.body);
+      country
+        .save()
+        .then(()=> res.redirect(`/countries/${req.params.country_id}/recommendations/${req.params.recommendation_id}`));
+
     });
 }
 

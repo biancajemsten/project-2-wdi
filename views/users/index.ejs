@@ -1,8 +1,11 @@
-<h1>Index page</h1>
+<h2 class="centered">All Travelers</h2>
+<div class="columns is-multiline has-top-margin">
+  <% users.forEach( profile =>{ %>
+    <div class="columns column is-full indexPage"><a class="userIndex" href='/users/<%= profile.id %>'>
 
-<% users.forEach( profile =>{ %>
-  <li>
-    <a href='/users/<%= profile.id %>'> <%= profile.username %></a>
-  </li>
-<% }) %>
-</ul>
+        <div class="column is-one-third"> <%= profile.username %></div>
+        <div class="column is-one-third"> Nationality: <%= profile.nationality %></div>
+        <div class="column is-one-third"> Age: <%= profile.age %></div>
+    </a></div>
+  <% }) %>
+</div>

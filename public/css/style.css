@@ -1,8 +1,8 @@
 .navbar {
   background-color: #11ffee00;
-  position: fixed;
+  position: absolute;
   width: 90%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #696969;
   padding: 20px 0; }
 
 div.navbar-brand {
@@ -10,17 +10,34 @@ div.navbar-brand {
 
 .navbar-item img {
   max-height: 3rem;
-  background-color: white; }
+  color: #696969; }
 
-div#navMenu.navbar-menu a {
-  color: #696969;
-  font-size: 2rem;
-  font-family: "Pacifico", cursive; }
+div#navMenu.navbar-menu {
+  overflow: hide; }
+  div#navMenu.navbar-menu a {
+    color: #696969;
+    font-size: 2rem;
+    font-family: "Pacifico", cursive; }
 
-.imagePlaceHolder {
+h2.profileTitle {
+  text-align: center; }
+
+img.profilePicture {
   width: 300px;
-  height: 300px;
-  background-color: pink; }
+  max-height: 100%; }
+
+.flexColumn {
+  display: flex;
+  flex-direction: column; }
+
+.profilePictureContainer {
+  min-height: 400px; }
+
+li.profileLabel {
+  font-weight: bold; }
+
+.preview {
+  height: auto; }
 
 html {
   height: 100%; }
@@ -28,7 +45,27 @@ html {
 body {
   display: flex;
   justify-content: center;
-  background-color: #11ffee00; }
+  background-color: #11ffee00;
+  font-family: "Montserrat", sans-serif; }
+
+a.userIndex {
+  width: 100%;
+  color: black; }
+  a.userIndex:hover {
+    color: white; }
+
+.has-top-margin {
+  margin-top: 10px; }
+
+a {
+  color: black; }
+
+.indexPage {
+  border: 2px solid #696969;
+  margin: 10px 0; }
+  .indexPage:hover {
+    background-color: #696969;
+    color: white; }
 
 h1 {
   font-family: "Pacifico", cursive;
@@ -36,12 +73,68 @@ h1 {
   font-size: 5rem;
   color: white; }
 
+h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  color: #696969; }
+
+h3 {
+  font-family: "Pacifico", cursive; }
+
+.centered {
+  text-align: center; }
+
+.hasBorder {
+  border: 1px solid #696969; }
+
+.deleteButton {
+  border: 1px solid #696969;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  color: black; }
+  .deleteButton:hover {
+    background-color: #ff3385;
+    color: white; }
+
+.linkBorder {
+  border: 1px solid #696969;
+  padding: 10px; }
+
+.addNew {
+  border: 1px solid #696969;
+  padding: 10px; }
+  .addNew:hover {
+    background-color: #00ff99;
+    color: white; }
+
+.goBack {
+  border: 1px solid #696969;
+  padding: 10px;
+  background-color: #11ffee00;
+  font-family: "Montserrat", sans-serif;
+  align-self: flex-end; }
+  .goBack:hover {
+    background-color: #6699ff;
+    color: white; }
+
+.editButton {
+  background-color: #696969;
+  color: white; }
+
+.thirdButton {
+  margin-right: 0px;
+  margin-left: auto; }
+
+.flexContent {
+  display: flex; }
+
 .mainSection {
   background-color: rgba(255, 255, 255, 0.95);
   width: 80%;
   margin: 120px auto;
   border-radius: 8px;
-  padding: 25px; }
+  padding: 25px;
+  min-height: 500px; }
 
 img#bg {
   z-index: -1;

@@ -1,5 +1,5 @@
-<form method="POST" action="<%= `/users/${user.id} `%>">
-  <input type="hidden" name="_method" value="PUT">
+<form enctype="multipart/form-data" method="POST" action="<%= `/users/${user.id} `%>">
+  <input type="hidden" name="_method" value="POST">
   <div>
     <label for="username">Username</label>
     <input type="text" name="username" id="username" value="<%= user.username %>">
@@ -19,6 +19,12 @@
   <div>
     <label for="currentlyIn">Currently In</label>
     <input type="text" name="currentlyIn" id="currentlyIn" value="<%= user.currentlyIn %>">
+  </div>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <input type="file" name="file">
+    </div>
   </div>
   <button class="button">Update Profile</button>
 </form>

@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
   age: String,
   nationality: String,
   currentlyIn: String,
+  url: String,
+  fileMetadata: Object,
   password: { type: String, required: true },
   country: [Country.schema]
 },{

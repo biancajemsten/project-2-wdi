@@ -1,17 +1,26 @@
 const User = require('../models/user');
+const Country = require('../models/country');
 
 
-//changed some of this but it still somehow works..? why can't I link user info ?
 function showRoute(req, res){
   if(!res.locals.isLoggedIn) return res.redirect('/');
-  console.log(req.params);
+  // console.log(req.params);
   User
     .findById(req.params.id)
-    .populate('countries')
-    .exec()
-    .then( user =>{
-      res.render('users/show', {user});
+    .populate('countries.countryCreator')
+    .populate('country');
+  Promise.all([Country.find(), User.findById(req.params.id)])
+    .then((values) => {
+      console.log(values);
+      res.render('users/show', {values});
     });
+  // User
+  //   .findById(req.params.id)
+  //   .populate('country')
+  //   .exec()
+  //   .then( user =>{
+  //     res.render('users/show', {user});
+  //   });
 }
 
 function indexRoute(req, res){
@@ -33,9 +42,13 @@ function editRoute(req, res){
     });
 }
 function updateRoute(req, res){
+  const userData = req.body;
+  if(req.file){
+    userData['url'] = req.file.location;
+  }
   User
     .findById(req.params.id)
-    .update(req.body)
+    .update(userData)
     .then( user =>{
       return res.redirect(`/users/${req.params.id}`);
     });
