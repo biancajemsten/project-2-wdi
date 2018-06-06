@@ -1,6 +1,10 @@
 .navbar{
-  height: 50px;
-  background-color: none;
+  background-color: #11ffee00;
+  position: fixed;
+  width: 90%;
+  border-bottom: 1px solid black;
+  padding: 20px 0;
+
 }
 
 div.navbar-brand{
@@ -13,11 +17,10 @@ div.navbar-brand{
 }
 
 div#navMenu.navbar-menu{
-  background-color: AliceBlue;
   a{
-    color: aliceBlue;
-    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    color: #696969;
+    // text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
     font-size: 2rem;
-    font-weight: bold;
+    font-family: 'Pacifico', cursive;
   }
 }

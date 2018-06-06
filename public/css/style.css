@@ -1,6 +1,9 @@
 .navbar {
-  height: 50px;
-  background-color: none; }
+  background-color: #11ffee00;
+  position: fixed;
+  width: 90%;
+  border-bottom: 1px solid black;
+  padding: 20px 0; }
 
 div.navbar-brand {
   height: 50px; }
@@ -9,24 +12,17 @@ div.navbar-brand {
   max-height: 3rem;
   background-color: white; }
 
-div#navMenu.navbar-menu {
-  background-color: AliceBlue; }
-  div#navMenu.navbar-menu a {
-    color: aliceBlue;
-    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
-    font-size: 2rem;
-    font-weight: bold; }
+div#navMenu.navbar-menu a {
+  color: #696969;
+  font-size: 2rem;
+  font-family: 'Pacifico', cursive; }
 
 html {
-  background-color: AliceBlue; }
+  height: 100%; }
 
 body {
-  background-color: AliceBlue; }
-
-main.row {
-  background-color: AliceBlue;
-  width: 100%;
-  margin: 0px; }
+  display: flex;
+  justify-content: center; }
 
 .mainSection {
   background-color: white;
@@ -34,5 +30,24 @@ main.row {
   margin: 15px auto;
   border-radius: 8px;
   padding: 15px; }
+
+img#bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+@media screen and (max-width: 1024px) {
+  /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;
+    /* 50% */ } }
 
 /*# sourceMappingURL=style.css.map */
