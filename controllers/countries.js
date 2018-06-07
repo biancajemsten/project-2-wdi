@@ -55,7 +55,7 @@ function deleteRoute(req, res){
     .exec()
     .then(country => {
       country.remove();
-      return res.redirect('/');
+      return res.redirect(`/users/${res.locals.currentUser.id}/countries`);
     });
 }
 

@@ -12,9 +12,6 @@ body{
   font-family: $text-font;
 }
 
-main.row{
-}
-
 a.userIndex{
   width: 100%;
   color: black;
@@ -55,16 +52,24 @@ h2{
 
 h3{
   font-family: $title-font;
-  font-size: 1.25rem; 
+  font-size: 1.25rem;
   color: $grey;
 }
 
+
+span.listLabel{
+  font-weight: bold;
+}
 .centered{
   text-align: center;
 }
 
 .hasBorder{
   border: 1px solid $grey;
+}
+
+.recommendationContent{
+  min-height: 150px;
 }
 
 .deleteButton{
@@ -147,6 +152,20 @@ img#bg {
   left: 0;
 }
 
+#content{
+  height: 200px;
+}
+
+.recommendationPicture{
+  height: auto;
+  width: 300px;
+}
+
+@media (max-width: 425px) { /* Specific to this particular image */
+  h2{
+    font-size: 1rem;
+  }
+}
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
   img.bg {
     left: 50%;

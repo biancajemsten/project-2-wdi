@@ -40,6 +40,21 @@ li.listLabel {
   height: 75px;
   width: auto; }
 
+@media (max-width: 425px) {
+  img.profilePicture {
+    width: 100px;
+    max-height: 100%; }
+
+  li {
+    font-size: 0.75rem; }
+
+  p {
+    font-size: 0.75rem; } }
+@media (max-width: 1024px) {
+  /* Specific to this particular image */
+  img.profilePicture {
+    width: 200px;
+    max-height: 100%; } }
 html {
   height: 100%; }
 
@@ -84,11 +99,17 @@ h3 {
   font-size: 1.25rem;
   color: #696969; }
 
+span.listLabel {
+  font-weight: bold; }
+
 .centered {
   text-align: center; }
 
 .hasBorder {
   border: 1px solid #696969; }
+
+.recommendationContent {
+  min-height: 150px; }
 
 .deleteButton {
   border: 1px solid #696969;
@@ -152,6 +173,17 @@ img#bg {
   top: 0;
   left: 0; }
 
+#content {
+  height: 200px; }
+
+.recommendationPicture {
+  height: auto;
+  width: 300px; }
+
+@media (max-width: 425px) {
+  /* Specific to this particular image */
+  h2 {
+    font-size: 1rem; } }
 @media screen and (max-width: 1024px) {
   /* Specific to this particular image */
   img.bg {

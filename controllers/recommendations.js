@@ -9,7 +9,7 @@ function createRoute(req, res){
   // console.log(req.params);
   const recommendationData = req.body;
   recommendationData['url'] = req.file.location;
-  recommendationData['fileMetadata'] = req.file; 
+  recommendationData['fileMetadata'] = req.file;
   Country
     .findById(req.params.id)
     .then( country =>{
@@ -26,14 +26,15 @@ function createRoute(req, res){
 
 function showRoute(req, res){
   const recommendationId = req.params.recommendation_id.toString();
+  const countryId = req.params.country_id;
   Country
-    .findById(req.params.country_id)
+    .findById(countryId)
     .exec()
     .then( country =>{
       // res.render('recommendations/show', {recommendation});
       // console.log(recommendation);
       const wantedRecommendation = country.recommendation.filter(recommendation => recommendation._id.toString() === recommendationId);
-      res.render('recommendations/show', {wantedRecommendation});
+      res.render('recommendations/show', {wantedRecommendation, countryId});
     });
 }
 
@@ -67,10 +68,25 @@ function updateRoute(req, res){
     });
 }
 
+function deleteRoute(req,res){
+  // const recommendationId = req.params.recommendation_id.toString();
+  Country
+    .findById(req.params.country_id)
+    .exec()
+    .then( country =>{
+      const recommendation = country.recommendation.id(req.params.recommendation_id);
+      recommendation.remove();
+      country
+        .save()
+        .then(()=> res.redirect(`/countries/${req.params.country_id}`));
+    });
+}
+
 module.exports = {
   new: newRoute,
   create: createRoute,
   show: showRoute,
   edit: editRoute,
-  update: updateRoute
+  update: updateRoute,
+  delete: deleteRoute
 };

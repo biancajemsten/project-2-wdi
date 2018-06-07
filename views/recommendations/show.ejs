@@ -1,18 +1,36 @@
-<h2><%=wantedRecommendation[0].title %></h2>
-
-
-<p>City: <%= wantedRecommendation[0].city %></p>
-<p>Content: <%= wantedRecommendation[0].content%></p>
-
-<img class="profilePicture" src="<%= wantedRecommendation[0].url %>">
-
-<div class="columns has-top-margin">
-  <div class="column is-half">
-      <a href="<%= wantedRecommendation[0].id %>/edit">Edit</a>
+<div class="columns is-multiline">
+  <div class="column centered is-full">
+    <h2><%=wantedRecommendation[0].title %></h2>
   </div>
-  <div class="column is-half">
-    <form>
-      <input class="goBack" type="button" value="Go back" onclick="history.back()">
-    </form>
+  <div class="column columns is-multiline">
+    <div class="column centered is-one-third">
+      <div class="column is-full">
+        <img class="recommendationPicture" src="<%= wantedRecommendation[0].url %>">
+      </div>
+      <div class="column is-full">
+        <div class="columns flexContent is-multiline">
+          <div class="column is-half">
+            <a href="#" class="goBack" onclick="history.back()">Go back</a>
+          </div>
+          <div class="column is-half">
+            <a href="<%= wantedRecommendation[0].id %>/edit" class="linkBorder">Edit</a>
+          </div>
+          <div class="column is-full">
+            <form class="" action="/countries/<%= countryId %>/recommendations/<%= wantedRecommendation[0].id %>" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <button name="button" class="deleteButton">Delete Recommendation</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-two-thirds">
+      <p><span class="listLabel">City:</span> <%= wantedRecommendation[0].city %></p>
+      <p><span class="listLabel">The experience:</span>
+        <div class="column hasBorder recommendationContent">
+          <%= wantedRecommendation[0].content%></p>
+        </div>
+    </div>
   </div>
+
 </div>

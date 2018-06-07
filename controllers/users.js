@@ -14,13 +14,6 @@ function showRoute(req, res){
       console.log(values);
       res.render('users/show', {values});
     });
-  // User
-  //   .findById(req.params.id)
-  //   .populate('country')
-  //   .exec()
-  //   .then( user =>{
-  //     res.render('users/show', {user});
-  //   });
 }
 
 function indexRoute(req, res){

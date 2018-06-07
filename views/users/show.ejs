@@ -1,21 +1,21 @@
 <div class="columns is-multiline is-mobile">
   <div class="columns column is-full is-multiline">
-    <div class="column is-full-desktop">
+    <div class="column is-full-desktop is-full-tablet is-full-mobile">
       <h2 class="centered"><%= values[1].username %>'s Profile</h2>
     </div>
-    <div class="column is-two-fifths-desktop profilePictureContainer">
+    <div class="column centered is-two-fifths-desktop is-two-fifth-tablet profilePictureContainer">
       <img class="profilePicture" src="<%= values[1].url %>">
     </div>
-    <div class="columns is-multiline column is-three-fifths-desktop flexColumn">
+    <div class="columns is-multiline column is-three-fifths-desktop is-three-fifths-tablet flexColumn">
       <div class="columns column is-full hasBorder has-top-margin is-multiline">
-        <div class="column is-half-desktop">
+        <div class="column is-half-desktop is-half-tablet is-half-mobile">
           <ul>
             <li class="listLabel">Age:</li>
             <li class="listLabel">Nationality:</li>
             <li class="listLabel">Currently In:</li>
           </ul>
         </div>
-        <div class="column is-half-desktop">
+        <div class="column is-half-desktop is-half-tablet is-half-mobile">
           <ul>
             <li><%= values[1].age %></li>
             <li><%= values[1].nationality %></li>
@@ -50,10 +50,11 @@
         <div class="column is-half autoHeight">
           <h3 class="centered">Uploaded photos</h3>
           <div class="columns is-multiline">
-            <% if(countryArray[0].recommendation[0]){%>
-              <div class="column has-top-margin"><img class="previewPicture" src="<%=countryArray[0].recommendation[0].url%>"></div><%}%>
+            <% if(countryArray[0]){%>
+              <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[0].recommendation[0].url%>"></div><%}%>
             <% if(countryArray[1]){%>
-              <div class="column has-top-margin"><img class="previewPicture" src="<%=countryArray[1].recommendation[0].url%>"></div><%}%>
+              <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[1].recommendation[0].url%>"></div><%}%>
+
           </div>
         </div>
       </div>

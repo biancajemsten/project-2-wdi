@@ -9,6 +9,16 @@ const users = require('../controllers/users');
 const recommendations = require('../controllers/recommendations');
 const countries = require('../controllers/countries');
 
+function secureRoute(req, res, next) {
+  // if the user is not logged in
+  if(!res.locals.currentUser) {
+    // clear the session cookie and redirect them to the login page
+    return req.session.regenerate(() => res.redirect('/login'));
+  }
+  next();
+}
+
+
 // handle a request
 router.get('/', (req, res) => res.render('home', {
   isHomepage: true
@@ -27,7 +37,7 @@ router.route('/users/:id')
   .post(upload.single('file'), users.update);
 
 router.route('/users')
-  .get(users.index);
+  .get(secureRoute,users.index);
 
 router.route('/users/:id/edit')
   .get(users.edit);
@@ -36,29 +46,30 @@ router.route('/logout')
   .get(sessions.delete);
 
 router.route('/countries/:id/recommendations/new')
-  .get(recommendations.new);
+  .get(secureRoute, recommendations.new);
 
 router.route('/countries/:id/recommendations')
   .post(upload.single('file'), recommendations.create);
 
 router.route('/countries/:country_id/recommendations/:recommendation_id')
-  .get(recommendations.show)
-  .post(upload.single('file'), recommendations.update);
+  .get(secureRoute,recommendations.show)
+  .post(upload.single('file'), recommendations.update)
+  .delete(recommendations.delete);
 
 router.route('/countries/:country_id/recommendations/:recommendation_id/edit')
-  .get(recommendations.edit);
+  .get(secureRoute,recommendations.edit);
 
 router.route('/countries/new')
-  .get(countries.new);
+  .get(secureRoute,countries.new);
 
 router.route('/users/:id/countries')
-  .get(countries.index);
+  .get(secureRoute,countries.index);
 
 router.route('/countries')
   .post(countries.create);
 
 router.route('/countries/:id')
-  .get(countries.show)
+  .get(secureRoute,countries.show)
   .delete(countries.delete);
 
 module.exports = router;
