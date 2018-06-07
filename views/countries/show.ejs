@@ -11,20 +11,22 @@
     </div>
     <div class="column columns is-full">
       <div class="column is-one-third">
-        <a href="#" class="goBack" onclick="history.back()">Go back</a>
+        <div class="column is-full">
+          <a href="#" class="goBack" onclick="history.back()">Go back</a>
+        </div>
       </div>
       <div class="column columns is-two-thirds">
         <% if(country.countryCreator.toString() === locals.currentUser.id) { %>
           <div class="flexContent column is-half">
             <a class="addNew" href="/countries/<%= country.id %>/recommendations/new">Add a new recommendation</a>
           </div>
-          <div class="column is-half centered">
+          <div class="column is-half">
             <form action="/countries/<%= country.id %>" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <button class="deleteButton" name="button">Delete Country</button>
             </form>
           </div>
-          <%}%>
+        <%}%>
       </div>
     </div>
 

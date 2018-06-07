@@ -2,10 +2,11 @@
 <div class="columns is-multiline has-top-margin">
   <% users.forEach( profile =>{ %>
     <div class="columns column is-full indexPage"><a class="userIndex" href='/users/<%= profile.id %>'>
-
-        <div class="column is-one-third"> <%= profile.username %></div>
-        <div class="column is-one-third"> Nationality: <%= profile.nationality %></div>
-        <div class="column is-one-third"> Age: <%= profile.age %></div>
+        <div class="column is-1"> <img class="userIndexPicture" src="<%= profile.url %>"></div>
+        <div class="column is-4"> <%= profile.username %></div>
+        <div class="column is-4"> Nationality: <%= profile.nationality %></div>
+        <div class="column is-3"> Age: <%= profile.age %></div>
     </a></div>
   <% }) %>
+  <div></div>
 </div>

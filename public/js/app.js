@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  const $modalImage = $('.modalImage');
+  const $modal = $('.modal');
+  const $modalbutton = $('.modal-close');
+
+
+  $modalImage.on('click', (event)=>{
+    const imageId = event.target.id;
+    $(`.${imageId}`).addClass('is-active');
+  });
+  
+
+  $modalbutton.on('click', ()=>{
+    $modal.removeClass('is-active');
+  });
+
   // Get all "navbar-burger" elements
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -21,5 +36,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
-
 });

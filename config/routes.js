@@ -2,7 +2,6 @@ const express  = require('express');
 const router   = express.Router();
 const upload = require('../lib/s3-upload');
 
-// const static = require('../controllers/static');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const users = require('../controllers/users');
@@ -19,7 +18,6 @@ function secureRoute(req, res, next) {
 }
 
 
-// handle a request
 router.get('/', (req, res) => res.render('home', {
   isHomepage: true
 }));

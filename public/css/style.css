@@ -99,6 +99,13 @@ h3 {
   font-size: 1.25rem;
   color: #696969; }
 
+#autoHeightSection {
+  background-color: rgba(255, 255, 255, 0.95);
+  width: 80%;
+  margin: 120px auto;
+  border-radius: 8px;
+  padding: 25px; }
+
 span.listLabel {
   font-weight: bold; }
 
@@ -110,6 +117,9 @@ span.listLabel {
 
 .recommendationContent {
   min-height: 150px; }
+
+.spaceBetween {
+  justify-content: space-between; }
 
 .deleteButton {
   border: 1px solid #696969;
@@ -123,6 +133,9 @@ span.listLabel {
 .linkBorder {
   border: 1px solid #696969;
   padding: 10px; }
+  .linkBorder:hover {
+    background-color: #696969;
+    color: white; }
 
 .addNew {
   border: 1px solid #696969;
@@ -135,8 +148,7 @@ span.listLabel {
   border: 1px solid #696969;
   padding: 10px;
   background-color: #11ffee00;
-  font-family: "Montserrat", sans-serif;
-  align-self: flex-end; }
+  font-family: "Montserrat", sans-serif; }
   .goBack:hover {
     background-color: #6699ff;
     color: white; }
@@ -158,7 +170,7 @@ span.listLabel {
   margin: 120px auto;
   border-radius: 8px;
   padding: 25px;
-  min-height: 500px; }
+  min-height: 600px; }
 
 img#bg {
   z-index: -1;
@@ -179,6 +191,10 @@ img#bg {
 .recommendationPicture {
   height: auto;
   width: 300px; }
+
+.userIndexPicture {
+  max-height: 50px;
+  max-width: 50px; }
 
 @media (max-width: 425px) {
   /* Specific to this particular image */

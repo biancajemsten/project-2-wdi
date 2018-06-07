@@ -5,22 +5,33 @@
   <div class="column columns is-multiline">
     <div class="column centered is-one-third">
       <div class="column is-full">
-        <img class="recommendationPicture" src="<%= wantedRecommendation[0].url %>">
+        <img id="<%= wantedRecommendation[0].id%>" class="modalImage recommendationPicture" src="<%= wantedRecommendation[0].url %>">
+        <div class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+              <p class="image is-4by3">
+                <img id="<%= wantedRecommendation[0].id%>" class="recommendationPicture" src="<%= wantedRecommendation[0].url %>">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
       </div>
       <div class="column is-full">
         <div class="columns flexContent is-multiline">
           <div class="column is-half">
             <a href="#" class="goBack" onclick="history.back()">Go back</a>
           </div>
-          <div class="column is-half">
-            <a href="<%= wantedRecommendation[0].id %>/edit" class="linkBorder">Edit</a>
-          </div>
-          <div class="column is-full">
-            <form class="" action="/countries/<%= countryId %>/recommendations/<%= wantedRecommendation[0].id %>" method="post">
-              <input type="hidden" name="_method" value="DELETE">
-              <button name="button" class="deleteButton">Delete Recommendation</button>
-            </form>
-          </div>
+          <% if(wantedRecommendation[0].user.toString() === locals.currentUser.id) {%>
+            <div class="column is-half">
+              <a href="<%= wantedRecommendation[0].id %>/edit" class="linkBorder">Edit</a>
+            </div>
+            <div class="column is-full">
+              <form class="" action="/countries/<%= countryId %>/recommendations/<%= wantedRecommendation[0].id %>" method="post">
+                <input type="hidden" name="_method" value="DELETE">
+                <button name="button" class="deleteButton">Delete Recommendation</button>
+              </form>
+            </div>
+            <%}%>
         </div>
       </div>
     </div>
@@ -32,5 +43,4 @@
         </div>
     </div>
   </div>
-
 </div>

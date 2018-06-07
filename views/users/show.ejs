@@ -31,7 +31,7 @@
       </div>
       <div class="columns column is-full-desktop has-top-margin hasBorder">
         <div class="column is-half autoHeight ">
-            <h3 class="centered">Reviewed countries</h3>
+            <h3 class="centered">Preview of reviewed countries</h3>
             <div class="previewCountry">
               <%const countryArray = [];%>
               <% values[0].forEach( country =>{ %>
@@ -50,11 +50,14 @@
         <div class="column is-half autoHeight">
           <h3 class="centered">Uploaded photos</h3>
           <div class="columns is-multiline">
-            <% if(countryArray[0]){%>
+            <% if(countryArray[0] && countryArray[0].recommendation[0]){%>
               <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[0].recommendation[0].url%>"></div><%}%>
-            <% if(countryArray[1]){%>
+            <% if(countryArray[1] && countryArray[1].recommendation[0]){%>
               <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[1].recommendation[0].url%>"></div><%}%>
-
+            <% if(countryArray[2] && countryArray[2].recommendation[0]){%>
+              <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[2].recommendation[0].url%>"></div><%}%>
+            <% if(countryArray[3] && countryArray[3].recommendation[0]){%>
+              <div class="column is-half has-top-margin"><img class="previewPicture" src="<%=countryArray[3].recommendation[0].url%>"></div><%}%>
           </div>
         </div>
       </div>

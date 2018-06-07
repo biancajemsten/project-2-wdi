@@ -8,6 +8,7 @@ function newRoute(req, res) {
 function createRoute(req, res){
   // console.log(req.params);
   const recommendationData = req.body;
+  req.body.user = res.locals.currentUser.id;
   recommendationData['url'] = req.file.location;
   recommendationData['fileMetadata'] = req.file;
   Country

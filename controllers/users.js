@@ -22,7 +22,7 @@ function indexRoute(req, res){
     .populate('user')
     .exec()
     .then( users =>{
-      res.render('users/index', {users});
+      res.render('users/index', {users , isAuto: true});
     });
 }
 
