@@ -23,15 +23,15 @@ The app is deployed on Heroku (insert link here)
 
 #### User Experience
 
-<img src="https://i.imgur.com/Dn18bkz.png" width="700">
+<p align="center"><img src="https://i.imgur.com/Dn18bkz.png" width="700"><p>
 
 **Signing up**
-<img src="https://i.imgur.com/82ymoIC.png" width="700">
+<p align="center"><img src="https://i.imgur.com/82ymoIC.png" width="700"></p>
 
 The user starts the journey by signing up to the site via a form. There the user can also upload a profile picture. This is enabled by the usage of Amazon Web Services. When clicking the register button the user is directed to the login page where they put in the credentials they just signed up with.
 
 **Viewing the profile**
-<img src="https://i.imgur.com/id4GN9r.png" width="700">
+<p align="center"><img src="https://i.imgur.com/id4GN9r.png" width="700"></p>
 After logging in, the user is taken to their profile. They can also browse for other users' profiles by going to the `All Travelers` tab. The `Preview of reviewed countries` shows the first few countries that this user has reviewed. Likewise, `Uploaded photos` shows up to the 4 first photos uploaded by the user in their recommendations.
 
 **Viewing the recommendations**
