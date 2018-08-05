@@ -6,7 +6,6 @@ function newRoute(req, res) {
 }
 
 function createRoute(req, res){
-  // console.log(req.params);
   const recommendationData = req.body;
   req.body.user = res.locals.currentUser.id;
   recommendationData['url'] = req.file.location;
@@ -19,7 +18,6 @@ function createRoute(req, res){
         .push(req.body);
 
       country.save(() =>{
-        // console.log(country);
         return res.redirect(`/countries/${country.id}`);
       });
     });
@@ -70,7 +68,6 @@ function updateRoute(req, res){
 }
 
 function deleteRoute(req,res){
-  // const recommendationId = req.params.recommendation_id.toString();
   Country
     .findById(req.params.country_id)
     .exec()

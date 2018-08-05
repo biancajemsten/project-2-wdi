@@ -39,14 +39,6 @@ function indexRoute(req, res){
       console.log(values);
       res.render('countries/index', {values});
     });
-  // Country
-  //   .findById(req.params.id)
-  //   // .populate('countries.countryCreator.username')
-  //   // .populate('country')
-  //   .exec()
-  //   .then( user =>{
-  //     res.render('countries/index', {users});
-  //   });
 }
 
 function deleteRoute(req, res){
