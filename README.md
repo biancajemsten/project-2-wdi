@@ -7,7 +7,7 @@
 ##### Overview
 The application allows users to create a profile where they can add all the countries that they've been to and then add recommendations to each country for other users to check out. There is also a user index page which enables searching for all users on the site.
 
-The app is deployed on Heroku (insert link here)
+The app is deployed on [Heroku ](https://travelrecommendations.herokuapp.com/) 
 
 ##### Technologies used
 |           |                     |         |
